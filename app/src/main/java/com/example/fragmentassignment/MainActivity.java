@@ -1,6 +1,7 @@
 package com.example.fragmentassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,13 +11,14 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.example.fragmentassignment.Fragment.AreaOfCircleFragment;
+import com.example.fragmentassignment.Fragment.AutomorphicNumberFragment;
 import com.example.fragmentassignment.Fragment.PalindromeFragment;
 import com.example.fragmentassignment.Fragment.ReverseNumberFragment;
 import com.example.fragmentassignment.Fragment.ReverseStringFragment;
 import com.example.fragmentassignment.Fragment.SumFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnSum, btnAreaOfCircle, btnReverseNumber,btnPalindrome,btnReverseString;
+    private Button btnSum, btnAreaOfCircle, btnReverseNumber,btnPalindrome,btnReverseString,btnAutomorphicNumber;
     private Boolean Status=true;
 
 
@@ -29,35 +31,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPalindrome=findViewById(R.id.btnPalindrome);
         btnReverseNumber=findViewById(R.id.btnReverseNumber);
         btnReverseString=findViewById(R.id.btnReverseString);
+        btnAutomorphicNumber=findViewById(R.id.btnReverseString);
 
         btnSum.setOnClickListener(this);
         btnReverseNumber.setOnClickListener(this);
         btnAreaOfCircle.setOnClickListener(this);
         btnPalindrome.setOnClickListener(this);
+        btnAutomorphicNumber.setOnClickListener(this);
         btnReverseString.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnSum:
-                SumFragment sumFragment= new SumFragment();
+                SumFragment sumFragment = new SumFragment();
                 fragmentTransaction.replace(R.id.fragmentContainer,sumFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
             case R.id.btnAreaOfCircle:
-                AreaOfCircleFragment areaOfCircleFragment = new AreaOfCircleFragment();
-                fragmentTransaction.replace(R.id.fragmentContainer,areaOfCircleFragment);
+                AreaOfCircleFragment areaFragment = new AreaOfCircleFragment();
+                fragmentTransaction.replace(R.id.fragmentContainer,areaFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
             case R.id.btnReverseNumber:
-                ReverseNumberFragment reverseNumberFragment = new ReverseNumberFragment();
-                fragmentTransaction.replace(R.id.fragmentContainer,reverseNumberFragment);
+                ReverseNumberFragment reverseNumFragment = new ReverseNumberFragment();
+                fragmentTransaction.replace(R.id.fragmentContainer,reverseNumFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
@@ -67,12 +71,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
+            case R.id.btnAutomorphicNumber:
+                AutomorphicNumberFragment automorphicFragment = new AutomorphicNumberFragment ();
+                fragmentTransaction.replace(R.id.fragmentContainer,automorphicFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
             case R.id.btnReverseString:
                 ReverseStringFragment reverseStringFragment = new ReverseStringFragment();
                 fragmentTransaction.replace(R.id.fragmentContainer,reverseStringFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
+
 
         }
 
