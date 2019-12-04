@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragment.ReverseStringFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/etString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a String"
+        android:layout_margin="30dp"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        />
+
+    <Button
+        android:id="@+id/btnReverseString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reverse"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        />
+
+</LinearLayout>
